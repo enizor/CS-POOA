@@ -36,5 +36,5 @@ class Director(Executive):
 class Phone:
     def __init__(self, phone_number):
         # TODO: format with spaces and hyphens
-        self.number = "{:10}".format(phone_number)
-        self.mac = "{:0x}".format(random.randint(0, 2**48))
+        self.number = "{:010}".format(phone_number)
+        self.mac = "{:010x}".format(random.randint(0, 2**48))
