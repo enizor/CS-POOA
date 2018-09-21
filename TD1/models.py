@@ -20,14 +20,13 @@ class Executive(Employee):
         self.wage_points = 600
         super().__init__(name, surname)
 
-class Commercial(Employee):
+class Commercial(Executive):
     def __init__(self, name, surname, phone_number=random.randint(100_000_000, 999_999_999)):
         self.phone = Phone(number)
-        self.wage_points = 600
         super().__init__(name, surname)
 
 
-class Director(Employee):
+class Director(Executive):
     def __init__(self, name, surname, phone_number=random.randint(100_000_000, 999_999_999)):
         self.phone = Phone(phone_number)
         self.wage_points = 1_000
