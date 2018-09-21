@@ -7,7 +7,10 @@ class Employee:
         self.surname = surname
 
 class Hourly(Employee):
-    pass
+    def __init__(self, name, surname):
+        super().__init__(name, surname)
+
+    wage_points = 290
 
 class Executive(Employee):
     pass
