@@ -2,8 +2,7 @@ import models
 from datetime import datetime
 
 if __name__ == "__main__":
-    date = datetime.today()
-    employees = []
+    global employees = []
 
     print("Welcome to SAP 0.0.0.1.alpha.prototype.mvp")
 
