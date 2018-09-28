@@ -19,17 +19,17 @@ class Stupidthread(threading.Thread):
         Compteur.value += 1
 
 
-# if __name__ == "__main__":
-#     compteur = Compteur()
-#     threads = []
-#     for t in range(10000):
-#         t = Stupidthread()
-#         threads.append(t)
-#     for t in threads:
-#         t.start()
-#     for t in threads:
-#         t.join()
-#     print(Compteur.value)
+def naivethreads():
+    compteur = Compteur()
+    threads = []
+    for t in range(10000):
+        t = Stupidthread()
+        threads.append(t)
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+    print(Compteur.value) # Without joining we finish and get 0
 
 
 # We do not get to 10_000
@@ -47,7 +47,7 @@ class Syncthread(threading.Thread):
         Compteur.value += 1
         self.lock.release()
 
-if __name__ == "__main__":
+def syncthreads():
     compteur = Compteur()
     threads = []
     lock = threading.Lock()
@@ -58,4 +58,8 @@ if __name__ == "__main__":
         t.start()
     for t in threads:
         t.join()
-    print(Compteur.value)
+    print(Compteur.value) # Wooo we get 10 000!
+
+
+if __name__ == "__main__":
+    naivethreads()
