@@ -29,6 +29,10 @@ RTT taken this month: TODO
 Remaining RTT: TODO
         """.format(date=date, self=self, wage=self.wage_points*5))
 
+    def timetravel(self, date):
+        self.leave.timetravel(date)
+
+
 class Hourly(Employee):
 
     def __init__(self, name, surname):
@@ -40,6 +44,11 @@ class Executive(Employee):
         self.wage_points = 600
         self.rtt = {date.year: Leave()} # List of leave per year
         super().__init__(name, surname)
+
+    def timetravel(self, date):
+        super().timetravel(date)
+        self.rtt.timetravel()
+
 
 class Commercial(Executive):
     def __init__(self, name, surname, phone_number=random.randint(100_000_000, 999_999_999)):
